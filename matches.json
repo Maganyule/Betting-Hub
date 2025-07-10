@@ -1,0 +1,28 @@
+[
+  {
+    "home": "Barcelona",
+    "away": "Real Madrid",
+    "home_logo": "https://example.com/barca.png",
+    "away_logo": "https://example.com/realmadrid.png",
+    "league": "La Liga",
+    "prediction": "1X",
+    "btts": "Yes",
+    "over_under": "Over 2.5",
+    "double_chance": "1X",
+    "tip": "Barcelona strong at home",
+    "time_left": 45
+  },
+  {
+    "home": "Man City",
+    "away": "Arsenal",
+    "home_logo": "https://example.com/city.png",
+    "away_logo": "https://example.com/arsenal.png",
+    "league": "Premier League",
+    "prediction": "12",
+    "btts": "No",
+    "over_under": "Under 2.5",
+    "double_chance": "X2",
+    "tip": "Both teams defensively strong",
+    "time_left": 90
+  }
+]

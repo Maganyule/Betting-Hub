@@ -1,0 +1,74 @@
+ScreenManagement:
+    MainScreen:
+    SavedScreen:
+
+<MainScreen>:
+    name: "main"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 5
+        padding: 10
+
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            Button:
+                text: "Saved Matches"
+                on_release: root.manager.current = "saved"
+            Button:
+                text: "Reload"
+                on_release: root.load_matches()
+
+        ScrollView:
+            GridLayout:
+                id: match_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+
+<SavedScreen>:
+    name: "saved"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 5
+        padding: 10
+
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            Button:
+                text: "Back"
+                on_release: root.manager.current = "main"
+            Button:
+                text: "Clear"
+                on_release:
+                    import os, json
+                    os.remove("saved.json") if os.path.exists("saved.json") else None
+                    root.on_enter()
+
+        ScrollView:
+            GridLayout:
+                id: saved_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+
+<PredictionPopup>:
+    size_hint: 0.9, 0.7
+    auto_dismiss: True
+    title: "Prediction"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            id: pred_label
+            text: "Prediction goes here..."
+            text_size: self.width - 20, None
+            size_hint_y: None
+            height: self.texture_size[1]
+        Button:
+            text: "Close"
+            size_hint_y: None
+            height: "50dp"
+            on_release: root.dismiss()
