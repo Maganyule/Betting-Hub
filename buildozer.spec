@@ -1,28 +1,24 @@
 [app]
-# (str) Title of your application
 title = Betting Hub
-
-# (str) Package name
 package.name = BettingHub
-
-# (str) Package domain (reverse DNS style)
 package.domain = org.maganyule.bettinghub
 
-# (str) Source code directory
 source.dir = .
-
-# (list) Source file extensions to include (comma separated)
 source.include_exts = py,kv,json,png,jpg
+version = 6.0
 
-# (str) Application versioning
-version = 1.0
-
-# (list) Application requirements
 requirements = python3,kivy,requests
-
-# (list) Permissions
 android.permissions = INTERNET
 
+# ✅ Add this to fix zlib header issue in Termux
+android.add_env = CFLAGS=-I/data/data/com.termux/files/usr/include,LDFLAGS=-L/data/data/com.termux/files/usr/lib
+
+# Optional icon (if you have one)
+# icon.filename = %(source.dir)s/icon.png
+
+# Optional: include assets like fonts or sounds
+# source.include_patterns = assets/*,fonts/*
+
 [buildozer]
-# (int) Log level (0=error, 1=info, 2=debug)
 log_level = 2
+warn_on_root = 1
